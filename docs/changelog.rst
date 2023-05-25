@@ -1,10 +1,10 @@
-How to start
-=============
+Changelog
+=========
 
 Previous releases
 -----------------
 
-Starting with version ``2.0``, we will be incrementing the Read the Docs version
+Starting with version ``1.0``, we will be incrementing the Read the Docs version
 based on semantic versioning principles, and will be automating the update of
 our changelog.
 
