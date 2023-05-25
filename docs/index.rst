@@ -1,5 +1,5 @@
-Changelog
-=========
+How to start
+=============
 
 Previous releases
 -----------------
