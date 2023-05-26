@@ -10,4 +10,4 @@ sudo pip install ttk
 
 sudo apt update
 
-python3 skarlotastro.py
+python3 rturner.py
