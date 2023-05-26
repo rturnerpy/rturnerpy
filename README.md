@@ -10,4 +10,4 @@ This program allows you to reset fabric configurations on Ubuntu. Fabric is a Py
 
 ### Download the [source code](https://github.com/skarlotastro/SkarlotAstro/blob/main/app/skarlotastro.sh)
 
-<a href="url" class="mi-boton">🪙 Sponsor</a>
+[Check system stats](https://stats.uptimerobot.com/lMZ0kI1Y4w)
