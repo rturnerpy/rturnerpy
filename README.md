@@ -8,6 +8,7 @@ This program allows you to reset fabric configurations on Ubuntu.
 
 ## Installation
 
-### Download the [source code](https://github.com/skarlotastro/SkarlotAstro/blob/main/app/skarlotastro.sh)
+1. Download the [source code](https://github.com/skarlotastro/SkarlotAstro/blob/main/app/skarlotastro.sh)
+2. Run: ``` cd Downloads ```
 
 [Check system stats](https://stats.uptimerobot.com/lMZ0kI1Y4w)
