@@ -4,7 +4,7 @@
 # rturner.py Reset Program
 
 ## Description
-This program allows you to reset fabric configurations on Ubuntu. Fabric is a Python library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks.
+This program allows you to reset fabric configurations on Ubuntu.
 
 ## Installation
 
