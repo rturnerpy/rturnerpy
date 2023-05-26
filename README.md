@@ -8,14 +8,4 @@ This program allows you to reset fabric configurations on Ubuntu. Fabric is a Py
 
 ## Installation
 
-### Prerequisites
-- Python 3
-- Pip (Python package installer)
-
-### Steps
-1. Open a terminal in Ubuntu.
-
-2. Install Fabric using pip:
-```
-$ pip install fabric
-```
+### Download the [source code](URL del enlace)
