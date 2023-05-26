@@ -1,48 +1,46 @@
-import os
+import tkinter as tk
+from tkinter import filedialog, messagebox
 
-def abrir_archivo(nombre_archivo):
-    try:
-        with open(nombre_archivo, 'r') as archivo:
-            contenido = archivo.read()
-        return contenido
-    except FileNotFoundError:
-        print("El archivo no existe.")
-        return ""
+def abrir_archivo():
+    nombre_archivo = filedialog.askopenfilename(filetypes=(("Archivos de texto", "*.txt"), ("Todos los archivos", "*.*")))
+    if nombre_archivo:
+        try:
+            with open(nombre_archivo, 'r') as archivo:
+                contenido = archivo.read()
+            text_editor.delete("1.0", tk.END)
+            text_editor.insert(tk.END, contenido)
+        except FileNotFoundError:
+            messagebox.showerror("Error", "El archivo no existe.")
 
-def guardar_archivo(nombre_archivo, contenido):
-    try:
-        with open(nombre_archivo, 'w') as archivo:
-            archivo.write(contenido)
-        print("Archivo guardado correctamente.")
-    except:
-        print("Error al guardar el archivo.")
+def guardar_archivo():
+    contenido = text_editor.get("1.0", tk.END)
+    nombre_archivo = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=(("Archivos de texto", "*.txt"), ("Todos los archivos", "*.*")))
+    if nombre_archivo:
+        try:
+            with open(nombre_archivo, 'w') as archivo:
+                archivo.write(contenido)
+            messagebox.showinfo("Guardado", "Archivo guardado correctamente.")
+        except:
+            messagebox.showerror("Error", "Error al guardar el archivo.")
 
 def menu():
-    print("1. Abrir archivo")
-    print("2. Guardar archivo")
-    print("3. Salir")
+    menu_bar = tk.Menu(root)
 
-def editor_textos():
-    while True:
-        menu()
-        opcion = input("Ingrese una opción: ")
+    archivo_menu = tk.Menu(menu_bar, tearoff=0)
+    archivo_menu.add_command(label="Abrir", command=abrir_archivo)
+    archivo_menu.add_command(label="Guardar", command=guardar_archivo)
+    archivo_menu.add_separator()
+    archivo_menu.add_command(label="Salir", command=root.quit)
+    menu_bar.add_cascade(label="Archivo", menu=archivo_menu)
 
-        if opcion == "1":
-            nombre_archivo = input("Ingrese el nombre del archivo a abrir: ")
-            contenido = abrir_archivo(nombre_archivo)
-            print("Contenido del archivo:\n", contenido)
+    root.config(menu=menu_bar)
 
-        elif opcion == "2":
-            nombre_archivo = input("Ingrese el nombre del archivo a guardar: ")
-            contenido = input("Ingrese el contenido del archivo: ")
-            guardar_archivo(nombre_archivo, contenido)
+root = tk.Tk()
+root.title("Editor de Textos")
 
-        elif opcion == "3":
-            print("¡Hasta luego!")
-            break
+text_editor = tk.Text(root)
+text_editor.pack(fill=tk.BOTH, expand=True)
 
-        else:
-            print("Opción inválida. Por favor, seleccione una opción válida.")
+menu()
 
-if __name__ == "__main__":
-    editor_textos()
+root.mainloop()
