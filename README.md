@@ -9,3 +9,21 @@ This program allows you to reset fabric configurations on Ubuntu. Fabric is a Py
 ## Installation
 
 ### Download the [source code](https://github.com/skarlotastro/SkarlotAstro/blob/main/app/skarlotastro.sh)
+
+<a href="url" class="mi-boton">Texto del botón</a>
+
+<style>
+.mi-boton {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+
