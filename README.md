@@ -1,5 +1,5 @@
 
-[![Documentation Status](https://readthedocs.org/projects/skarlotastro/badge/?version=latest)](https://skarlotastro.readthedocs.io/es/latest/?badge=latest) <p align="left"><img src="https://komarev.com/ghpvc/?username=rturnerpy&label=Profile%20views&color=0e75b6&style=flat" alt="rturnerpy" /></p>
+[![Documentation Status](https://readthedocs.org/projects/skarlotastro/badge/?version=latest)](https://skarlotastro.readthedocs.io/es/latest/?badge=latest) <p><img src="https://komarev.com/ghpvc/?username=rturnerpy&label=Profile%20views&color=0e75b6&style=flat" alt="rturnerpy" /></p>
 
 # Linux rturner
 
