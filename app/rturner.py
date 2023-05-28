@@ -56,7 +56,7 @@ def resetear_ordenador(idioma):
         print("Invalid language. Please select 'español' or 'english'.")
 
 def seleccionar_idioma():
-    idioma = input("Seleccione el idioma del programa (español (1) / inglés (2): ")
+    idioma = input("Seleccione el idioma del programa | español (1) / inglés (2): ")
     return idioma
 
 # Obtener el idioma seleccionado

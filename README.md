@@ -1,6 +1,6 @@
 [![Documentation Status](https://readthedocs.org/projects/skarlotastro/badge/?version=latest)](https://skarlotastro.readthedocs.io/es/latest/?badge=latest)
 
-# rturner reset program
+# Ubuntu rturner
 
 ## Description
 This program allows you to reset fabric configurations on Ubuntu.
@@ -13,7 +13,11 @@ This program allows you to reset fabric configurations on Ubuntu.
 
 ## Changelog
 ### - v-1.0
-Hellow world 
+Hellow world
+
+## Compatible with
+- All Ubuntu distributions
+- All Debian distributions
 
 # Stats
 [Check system stats](https://stats.uptimerobot.com/lMZ0kI1Y4w)
