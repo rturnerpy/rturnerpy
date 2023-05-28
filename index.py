@@ -33,14 +33,37 @@ def generate_report():
 
     # Procesos en ejecución
     headers = ["PID", "Nombre", "Uso de CPU (%)", "Uso de memoria (%)"]
-    process_data = [[proc['pid'], proc['name'], proc['cpu_percent'], proc['memory_percent']] for proc in process_info]
+    process_data = []
+
+    for proc in process_info:
+        pid = proc['pid']
+        name = proc['name']
+        cpu_percent = proc['cpu_percent']
+        memory_percent = proc['memory_percent']
+
+        # Resaltar procesos con alto consumo en rojo y bajo consumo en verde
+        if cpu_percent > 50 or memory_percent > 50:
+            process_data.append([colored(pid, 'red'), colored(name, 'red'), colored(cpu_percent, 'red'), colored(memory_percent, 'red')])
+        elif cpu_percent < 10 and memory_percent < 10:
+            process_data.append([colored(pid, 'green'), colored(name, 'green'), colored(cpu_percent, 'green'), colored(memory_percent, 'green')])
+        else:
+            process_data.append([pid, name, cpu_percent, memory_percent])
+
     process_table = tabulate(process_data, headers, tablefmt="pipe")
 
     report += colored("--- Procesos en ejecución ---", attrs=['bold']) + "\n"
     report += process_table + "\n\n"
 
     # Uso de CPU
-    cpu_data = [[f"CPU {i}", cpu] for i, cpu in enumerate(cpu_usage)]
+    cpu_data = []
+    for i, cpu in enumerate(cpu_usage):
+        if cpu > 50:
+            cpu_data.append([colored(f"CPU {i}", 'red'), colored(cpu, 'red')])
+        elif cpu < 10:
+            cpu_data.append([colored(f"CPU {i}", 'green'), colored(cpu, 'green')])
+        else:
+            cpu_data.append([f"CPU {i}", cpu])
+
     cpu_table = tabulate(cpu_data, headers=["CPU", "Uso (%)"], tablefmt="pipe")
 
     report += colored("--- Uso de CPU ---", attrs=['bold']) + "\n"

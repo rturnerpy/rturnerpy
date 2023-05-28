@@ -12,6 +12,10 @@ This program allows you to reset fabric configurations on Ubuntu.
 ## Installation
 
 1. Install [Python](https://www.python.org/)
+2. Install dependencies usgin 
+```
+pip install psutil tabulate termcolor
+```
 2. Download the [source code](https://github.com/rturnerpy/rturnerpy/archive/refs/heads/main.zip)
 3. Navigate to: ```cd Downloads```
 4. Run ```unzip directory.zip```
