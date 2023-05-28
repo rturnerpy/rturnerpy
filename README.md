@@ -1,6 +1,6 @@
 [![Documentation Status](https://readthedocs.org/projects/skarlotastro/badge/?version=latest)](https://skarlotastro.readthedocs.io/es/latest/?badge=latest)
 
-# rturner.py Reset Program
+# rturner reset program
 
 ## Description
 This program allows you to reset fabric configurations on Ubuntu.
@@ -13,7 +13,7 @@ This program allows you to reset fabric configurations on Ubuntu.
 
 ## Changelog
 ### - v-1.0
-- g 
+Hellow world 
 
 # Stats
 [Check system stats](https://stats.uptimerobot.com/lMZ0kI1Y4w)
