@@ -1,66 +1,76 @@
-import os
+import psutil
+import platform
+import time
+from tabulate import tabulate
+from termcolor import colored
+import math
 
-def resetear_ordenador(idioma):
-    # Comando para borrar todos los datos del disco
-    comando_borrado = "sudo dd if=/dev/zero of=/dev/sda bs=1M count=-1"
-    
-    # Comando para reinstalar Ubuntu desde un medio de instalación
-    comando_instalacion = "sudo /usr/bin/env bash -c 'apt-get install -y --reinstall ubuntu-desktop'"
-    
-    # Comando para reiniciar el ordenador
-    comando_reinicio = "sudo reboot"
-    
-    if idioma.lower() == '1':
-        # Preguntar al usuario si desea continuar
-        confirmacion = input("Este proceso borrará todos los datos de tu disco y restablecerá el ordenador a su estado de fábrica. ¿Estás seguro de que deseas continuar? (s/n): ")
-    
-        if confirmacion.lower() == 's':
-            # Ejecutar el comando de borrado
-            os.system(comando_borrado)
-            
-            # Ejecutar el comando de reinstalación
-            os.system(comando_instalacion)
-            
-            # Preguntar al usuario si desea reiniciar el ordenador
-            confirmacion_reinicio = input("El proceso de reinicio se ha completado. ¿Deseas reiniciar el ordenador ahora? (s/n): ")
-            
-            if confirmacion_reinicio.lower() == 's':
-                # Reiniciar el ordenador
-                os.system(comando_reinicio)
-            else:
-                print("El reinicio se ha omitido. Puedes reiniciar manualmente cuando estés listo.")
+def get_process_info():
+    process_info = []
+    for proc in psutil.process_iter(['pid', 'name', 'cpu_percent', 'memory_percent']):
+        try:
+            pinfo = proc.as_dict(attrs=['pid', 'name', 'cpu_percent', 'memory_percent'])
+            process_info.append(pinfo)
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            pass
+    return process_info
+
+def get_memory_usage():
+    mem = psutil.virtual_memory()
+    return {
+        'total': mem.total,
+        'available': mem.available,
+        'used': mem.used,
+        'percent': mem.percent
+    }
+
+def convert_size(size_bytes):
+    if size_bytes == 0:
+        return "0B"
+    size_names = ("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB")
+    i = int(math.floor(math.log(size_bytes, 1024)))
+    p = math.pow(1024, i)
+    size = round(size_bytes / p, 2)
+    return f"{size} {size_names[i]}"
+
+while True:
+    # Obtener los procesos
+    process_info = get_process_info()
+
+    # Mostrar los procesos
+    headers = ["PID", "Nombre", "Uso de CPU (%)", "Uso de memoria (%)"]
+    process_data = []
+
+    for i, proc in enumerate(process_info):
+        pid = proc['pid']
+        name = proc['name']
+        cpu_percent = proc['cpu_percent']
+        memory_percent = proc['memory_percent']
+
+        if cpu_percent > 50 or memory_percent > 50:
+            process_data.append([colored(pid, 'red'), colored(name, 'red'), colored(cpu_percent, 'red'), colored(memory_percent, 'red')])
+        elif cpu_percent < 10 and memory_percent < 10:
+            process_data.append([colored(pid, 'green'), colored(name, 'green'), colored(cpu_percent, 'green'), colored(memory_percent, 'green')])
         else:
-            print("El proceso ha sido cancelado. No se realizarán cambios en el ordenador.")
-    elif idioma.lower() == '2':
-        # Ask the user if they want to continue
-        confirmation = input("This process will erase all data on your disk and reset the computer to its factory state. Are you sure you want to continue? (y/n): ")
-    
-        if confirmation.lower() == 'y':
-            # Execute the wipe command
-            os.system(comando_borrado)
-            
-            # Execute the reinstallation command
-            os.system(comando_instalacion)
-            
-            # Ask the user if they want to restart the computer
-            restart_confirmation = input("The reset process has completed. Do you want to restart the computer now? (y/n): ")
-            
-            if restart_confirmation.lower() == 'y':
-                # Restart the computer
-                os.system(comando_reinicio)
-            else:
-                print("The restart has been skipped. You can manually restart when you're ready.")
-        else:
-            print("The process has been canceled. No changes will be made to the computer.")
-    else:
-        print("Invalid language. Please select 'español' or 'english'.")
+            process_data.append([pid, name, cpu_percent, memory_percent])
 
-def seleccionar_idioma():
-    idioma = input("Seleccione el idioma del programa | español (1) / inglés (2): ")
-    return idioma
+    process_table = tabulate(process_data, headers, tablefmt="pipe")
+    print("\n=== Informe del sistema ===")
+    print("\n--- Procesos en ejecución ---")
+    print(process_table)
 
-# Obtener el idioma seleccionado
-idioma_seleccionado = seleccionar_idioma()
+    # Obtener el uso de memoria
+    memory_usage = get_memory_usage()
 
-# Llamada a la función para resetear el ordenador
-resetear_ordenador(idioma_seleccionado)
+    # Mostrar el uso de memoria
+    memory_data = [
+        ["Total", convert_size(memory_usage['total'])],
+        ["Disponible", convert_size(memory_usage['available'])],
+        ["Utilizado", convert_size(memory_usage['used'])],
+        ["Porcentaje de uso", f"{memory_usage['percent']}%"]
+    ]
+    memory_table = tabulate(memory_data, headers=["Tipo", "Valor"], tablefmt="pipe")
+    print("\n--- Uso de memoria ---")
+    print(memory_table)
+
+    time.sleep(1)  # Esperar 1 segundo antes de actualizar la información nuevamente
