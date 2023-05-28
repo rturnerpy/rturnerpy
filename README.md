@@ -1,6 +1,6 @@
 [![Documentation Status](https://readthedocs.org/projects/skarlotastro/badge/?version=latest)](https://skarlotastro.readthedocs.io/es/latest/?badge=latest)
 
-# Ubuntu rturner
+# Linux rturner
 
 ## Description
 This program allows you to reset fabric configurations on Ubuntu.
