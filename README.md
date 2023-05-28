@@ -19,7 +19,7 @@ Hellow world
 - All Ubuntu distributions
 - All Debian distributions
 
-![image](https://github.com/rturnerpy/rturner/assets/116662838/de910439-7288-4875-a7ed-69cc8893ca35)
+![image](https://i.ibb.co/6YCysvG/debian-logo-big-1.png)
 
 # Stats
 [Check system stats](https://stats.uptimerobot.com/lMZ0kI1Y4w)
