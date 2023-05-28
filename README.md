@@ -1,5 +1,5 @@
 
-[![Documentation Status](https://readthedocs.org/projects/skarlotastro/badge/?version=latest)](https://skarlotastro.readthedocs.io/es/latest/?badge=latest) <img src="https://komarev.com/ghpvc/?username=rturnerpy&label=Profile%20views&color=0e75b6&style=flat" alt="rturnerpy" />
+[![Documentation Status](https://readthedocs.org/projects/skarlotastro/badge/?version=latest)](https://skarlotastro.readthedocs.io/es/latest/?badge=latest) <img src="https://komarev.com/ghpvc/?username=rturnerpy&label=Profile%20views&color=0e75b6&style=flat" alt="rturnerpy" /> <p align="left"> <a href="https://twitter.com/@rturnerpy" target="blank"><img src="https://img.shields.io/twitter/follow/?logo=twitter&style=for-the-badge" alt="" /></a>
 
 # Linux rturner
 
