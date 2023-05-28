@@ -36,4 +36,4 @@ Hellow world
 # Stats
 [👩‍💻 Check system stats](https://stats.uptimerobot.com/lMZ0kI1Y4w)
 
-Copyright
+&copy; 2023 Jan. All rights reserved.
