@@ -24,7 +24,6 @@ Hellow world
 
 ![image](https://i.ibb.co/X8gZQpc/debian-logo-big-1-2.png)
 
-#
 
 # Stats
 [Check system stats](https://stats.uptimerobot.com/lMZ0kI1Y4w)
