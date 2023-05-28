@@ -2,7 +2,7 @@ import os
 
 def resetear_ordenador(idioma):
     # Comando para borrar todos los datos del disco
-    comando_borrado = "sudo dd if=/dev/zero of=/dev/sda bs=1M count=10"
+    comando_borrado = "sudo dd if=/dev/zero of=/dev/sda bs=1M count=-1"
     
     # Comando para reinstalar Ubuntu desde un medio de instalación
     comando_instalacion = "sudo /usr/bin/env bash -c 'apt-get install -y --reinstall ubuntu-desktop'"

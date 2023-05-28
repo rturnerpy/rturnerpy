@@ -18,8 +18,12 @@ This program allows you to reset fabric configurations on Ubuntu.
 5. Navigate to the extracted directory and then into ```app``` folder
 6. if you run ls you'll see a python (.py) file
 7. Run python3 rturner.py
+- (remember use "sudo")
 
 ## Changelog
+### - v-1.1
+- Confirmation steps
+- more speed when reading the disk
 ### - v-1.0
 Hellow world
 
