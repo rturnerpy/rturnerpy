@@ -18,6 +18,7 @@ Hellow world
 ## Compatible with
 - All Ubuntu distributions
 - All Debian distributions
+
 ![image](https://github.com/rturnerpy/rturner/assets/116662838/de910439-7288-4875-a7ed-69cc8893ca35)
 
 # Stats
